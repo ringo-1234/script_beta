@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>RTM Script Builder Beta</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      .feature {
+        margin: 10px 0;
+      }
+      textarea {
+        width: 100%;
+        height: 400px;
+        font-family: monospace;
+        margin-bottom: 10px;
+      }
+      .output-container {
+        display: none;
+      }
+      .output-container.active {
+        display: block;
+      }
+      label {
+        font-weight: bold;
+        color: #333;
+        display: block;
+        margin-top: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 10px 0;
+      }
+      .copy-btn {
+        margin-top: 5px;
+        padding: 6px 12px;
+        font-size: 14px;
+        background: #2196f3;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .copy-btn:hover {
+        background: #1976d2;
+      }
+      .copy-btn:active,
+      .copy-btn.copying {
+        background: #555 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>RTM Script Builder</h1>
+    <div class="feature">
+      <input type="checkbox" id="ad_notch" checked /> A/Dノッチ操作<br />
+      <input type="checkbox" id="mascon" checked /> マスコン動作(回転型)<br />
+    </div>
+    <button id="generate-btn">スクリプトを生成</button>
+
+    <!-- render.js 出力 -->
+    <div id="render-output" class="output-container">
+      <label>render.js</label>
+      <textarea id="render-text"></textarea>
+      <button
+        data-target="render-text"
+        class="copy-btn"
+        onclick="copyToClipboard(this)"
+      >
+        コピーする
+      </button>
+    </div>
+
+    <!-- server.js 出力 -->
+    <div id="server-output" class="output-container">
+      <label>server.js</label>
+      <textarea id="server-text"></textarea>
+      <button
+        data-target="server-text"
+        class="copy-btn"
+        onclick="copyToClipboard(this)"
+      >
+        コピーする
+      </button>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
